@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>询盘快答 · 业务员工作台（演示版）</title>
+    <meta name="description" content="外贸询盘回复与报价助手演示版：解析询盘、按企业报价规则算价、生成多语种回复初稿，业务员确认后发送。" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">询</span>
+        <div>
+          <strong>询盘快答</strong>
+          <span class="brand-sub">业务员工作台 · 演示版</span>
+        </div>
+      </div>
+      <nav class="nav" aria-label="主导航">
+        <button type="button" data-view="desk" class="is-active">工作台</button>
+        <button type="button" data-view="rules">报价规则</button>
+        <button type="button" data-view="audit">审计日志</button>
+        <button type="button" data-view="about">关于演示</button>
+      </nav>
+      <div class="topbar-tools">
+        <span class="mode-chip" id="mode-chip" title="">解析：本地规则</span>
+        <label class="role-switch">
+          <span>当前身份</span>
+          <select id="role-select">
+            <option value="sales">业务员 · 陈璐</option>
+            <option value="manager">负责人 · 王建</option>
+          </select>
+        </label>
+        <button type="button" class="btn-ghost" id="reset-demo">重置演示数据</button>
+      </div>
+    </header>
+    <p class="notice">演示版：企业、产品、价格和询盘均为虚构数据，点击“确认发送”不会真实发出邮件。</p>
+
+    <main id="view" tabindex="-1"></main>
+
+    <dialog id="new-dialog" aria-labelledby="new-dialog-title">
+      <form method="dialog" id="new-form">
+        <h2 id="new-dialog-title">粘贴一封询盘</h2>
+        <p class="dialog-hint">支持英语、法语、西班牙语、德语。可以直接粘贴买家邮件全文，包括签名。</p>
+        <div class="dialog-row">
+          <label>来源
+            <select name="source">
+              <option>企业邮箱</option>
+              <option>阿里国际站</option>
+              <option>独立站表单</option>
+            </select>
+          </label>
+          <div class="dialog-examples">
+            <span>填入示例：</span>
+            <button type="button" data-example="moq">英语 · 低于起订量</button>
+            <button type="button" data-example="ddp">西语 · DDP 条款</button>
+            <button type="button" data-example="restricted">英语 · 受限地区</button>
+          </div>
+        </div>
+        <textarea name="text" rows="12" required placeholder="Hello, please quote ..."></textarea>
+        <div class="dialog-actions">
+          <button type="button" class="btn-ghost" id="new-cancel">取消</button>
+          <button type="submit" class="btn-primary" value="create">解析这封询盘</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>

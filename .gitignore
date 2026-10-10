@@ -1,0 +1,10 @@
+node_modules/
+.env
+*.log
+.DS_Store
+Thumbs.db
+
+# 参赛材料原件不进仓库
+/form-fields.md
+/*.pdf
+/*.pptx

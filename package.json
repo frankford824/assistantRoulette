@@ -1,0 +1,16 @@
+{
+  "name": "xunpan-kuaida-demo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "询盘快答：外贸询盘回复与报价助手（演示版）",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test",
+    "eval": "node scripts/eval.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED"
+}
